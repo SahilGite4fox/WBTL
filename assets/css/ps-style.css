@@ -1,0 +1,41 @@
+.psAboutInfo{display: flex; gap: 3.37em;}
+.psAboutDesk > p{font-size: var(--body); font-family: var(--Satoshi-font); line-height: 2.12; color: var(--primary-Txt-color);}
+.psAboutDesk > p:not(:last-child) { margin-bottom: 3em; }
+.psAboutDesk > ul{list-style-type: disc; font-size: var(--body); font-family: var(--Satoshi-Medium-font); line-height: 2.12; color: var(--primary-Txt-color); margin-bottom: 3em; padding-left: 4.5em;}
+.psAboutImg{max-width: 558px; width: 100%;}
+.psAboutImg1{max-width: 389px;}
+.psAboutImg2{max-width: 307px; position: absolute; right: 0; top: 25%;}
+
+
+.psOurVision{padding-top: 0; padding-bottom: calc(var(--secGap) * 2);}
+.psVisionImg{max-width: 1170px;} 
+.psVisionTxt {max-width: 841px; position: absolute; top: 44%; right: 0; background: #fff; padding: 40px;}
+.psVisionTxt > p {font-size: var(--body); font-family: var(--Satoshi-font); line-height: 2.12; color: var(--primary-Txt-color);}
+
+
+.psCarsContent:not(:last-of-type) { margin-bottom: 9em; }
+.psCarsContent{display: flex; column-gap: 3.37em;}
+.psCarsContent:nth-of-type(even) { flex-direction: row-reverse; }
+.psCarsTxt > p {font-size: var(--body); font-family: var(--Satoshi-font); line-height: 2.12; color: var(--primary-Txt-color);}
+.psCarsTxt > p:not(:last-child) { margin-bottom: 3em; }
+.psCarImg{max-width: 562px;}
+
+.psCareerInfo{padding: 0 3.4em;}
+.psCareerTitle{margin-bottom: 2.18em;}
+.psCareerInfo > h4{font-size: calc(var(--sub-txt) + 2px); font-family: var(--Satoshi-Bold-font); line-height: 2.12; text-align: center;}
+.psCareerInfo > p {font-size: var(--body); font-family: var(--Satoshi-font); line-height: 2.12; color: var(--primary-Txt-color); text-align: center;}
+.careerjoinBtn{margin-top: 2.8em; display: flex; align-items: center; justify-content: center;}
+.psCareerSlider{margin-top: 3.68em;}
+.psCareerSlideBox button.slick-prev {
+    background-image: url(../images/careerslidearrowleft.png) !important;
+    left: auto;
+    right: 105%;
+}
+.psCareerSlideBox button.slick-next {
+    background-image: url(../images/careerslidearrowright.png) !important;
+    right: auto;
+    left: 105%;
+}
+.psCareerSlideBox .slick-slide {
+  margin: 0 21px; 
+}
