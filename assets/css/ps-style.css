@@ -26,16 +26,7 @@
 .psCareerInfo > p {font-size: var(--body); font-family: var(--Satoshi-font); line-height: 2.12; color: var(--primary-Txt-color); text-align: center;}
 .careerjoinBtn{margin-top: 2.8em; display: flex; align-items: center; justify-content: center;}
 .psCareerSlider{margin-top: 3.68em;}
-.psCareerSlideBox button.slick-prev {
-    background-image: url(../images/careerslidearrowleft.png) !important;
-    left: auto;
-    right: 105%;
-}
-.psCareerSlideBox button.slick-next {
-    background-image: url(../images/careerslidearrowright.png) !important;
-    right: auto;
-    left: 105%;
-}
-.psCareerSlideBox .slick-slide {
-  margin: 0 21px; 
-}
+.psCareerSlideBox button.slick-prev{background-image:url(../images/careerslidearrowleft.png) !important;left:auto;right:105%;}
+.psCareerSlideBox button.slick-next{background-image:url(../images/careerslidearrowright.png) !important;right:auto;left:105%;}
+.psCareerSlideBox .slick-slide{margin:0 21px;}
+

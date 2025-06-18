@@ -1,32 +1,107 @@
 $(document).ready(function () {
 
-  
 
-  // Tab Section
-  $(".tabBtn").click(function () {
-    var tab_id = $(this).data("id");
 
-    $(".tabBtn, .tab-content").removeClass("active");
-    $(this).addClass("active");
-    $("#" + tab_id).addClass("active");
 
-    // Reinitialize Slick slider inside the active tab
-    $("#" + tab_id).find(".webStoriesSlider").slick("setPosition");
+
+  // Slick Sliders
+
+  // Products Slider
+  $('.productContSlider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    centerMode: true,
+    centerPadding: '0px',
+  });
+
+  // CareerSlick Sliders
+
+  $('.psCareerSlideBox').slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    centerMode: true,
+    centerPadding: '0px',
+  });
+
+  // Home Banner Slider
+  $('.hmBannerImg').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: false,
+    fade: true,
+    asNavFor: '.hmBannerTitle'
+  });
+
+  $('.hmBannerTitle').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    asNavFor: '.hmBannerImg',
+    dots: false,
+    arrows: false,
+    fade: true,
+    centerMode: true,
+    focusOnSelect: true
   });
 
 
-  
+  // Product Details Slider
+  function initProductSlider($tab) {
+    const $mainSlider = $tab.find('.productDetailSliderMain');
+    const $thumbs = $tab.find('.productDetailSliderSub img');
 
-// Slick Sliders
+    // Initialize main slider if not already done
+    if (!$mainSlider.hasClass('slick-initialized')) {
+      $mainSlider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        dots: false
+      });
 
-$('.productContSlider').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: false,
-  autoplaySpeed: 2000,
-  centerMode: true,
-  centerPadding: '0px',
-});
+      // Sync slider change to thumbnails
+      $mainSlider.on('afterChange', function (event, slick, currentSlide) {
+        $thumbs.removeClass('active');
+        $thumbs.eq(currentSlide).addClass('active');
+      });
+    } else {
+      // If already initialized, just refresh it
+      $mainSlider.slick('setPosition');
+    }
+
+    // Set first thumbnail as active
+    $thumbs.removeClass('active');
+    $thumbs.eq(0).addClass('active');
+
+    // On thumbnail click
+    $thumbs.off('click').on('click', function () {
+      const index = $(this).index();
+      $mainSlider.slick('slickGoTo', index);
+      $thumbs.removeClass('active');
+      $(this).addClass('active');
+    });
+  }
+
+  // Initial run on first visible tab
+  initProductSlider($('.tab-content.active'));
+
+  // Tab switching
+  $(".tabBtn").click(function () {
+    const tab_id = $(this).data("id");
+
+    $(".tabBtn, .tab-content").removeClass("active");
+    $(this).addClass("active");
+    const $newTab = $("#" + tab_id).addClass("active");
+
+    // Reinitialize slick and sync for the new tab
+    initProductSlider($newTab);
+  });
+
 
 
 
@@ -40,26 +115,6 @@ $('.productContSlider').slick({
   });
 
 
-  $('.popup-youtube').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
-    fixedContentPos: false,
-
-    callbacks: {
-      open: function () {
-        $('html, body').addClass('no-scroll');
-      },
-      close: function () {
-        $('html, body').removeClass('no-scroll');
-      }
-    }
-  });
-
-
-
 
   // Sticky Header
 
@@ -67,58 +122,6 @@ $('.productContSlider').slick({
     $("header").toggleClass("stickyHead", $(this).scrollTop() > 0);
   });
 
-
-
-  // Code to handle floating lable
-
-  // Function to toggle 'active' class based on value or focus
-
-  function toggleFloatingLabel($element) {
-    const hasValue = $element.val() !== '' && (!$element.is('select') || $element.find('option:selected').val() !== '');
-    const isFocused = $element.is(':focus');
-    const $label = $element.siblings('.floating-label');
-
-    $label.toggleClass('active', hasValue || isFocused);
-
-    // 👇 Apply color change if it's a <select>
-    if ($element.is('select')) {
-      $element.toggleClass('has-value', hasValue);
-    }
-  }
-
-  // Event handler for focus, blur, and change
-
-  function handleFloatingLabel(event) {
-    toggleFloatingLabel($(this));
-  }
-
-  // Apply event handlers to inputs and selects
-
-  $('.floating-labelInp').on('focus blur change', 'input, select', handleFloatingLabel);
-
-  // Check initial state on page load
-
-  $('.floating-labelInp input, .floating-labelInp select').each(function () {
-    toggleFloatingLabel($(this));
-  });
-
-  // Code to handle file type floating lable and file name
-
-  // Function to update the file name and toggle the floating label
-
-  function updateFileName(inputElement) {
-    var fileName = $(inputElement).val().split('\\').pop();
-    var $label = $(inputElement).next('.file-option').find('.floating-label');
-    var $fileNameSpan = $(inputElement).next('.file-option').find('.file-name');
-
-    if (fileName) {
-      $fileNameSpan.text(fileName); // Update the file name display
-      $label.addClass('active'); // Float the label
-    } else {
-      $fileNameSpan.text(' '); // Set default text
-      $label.removeClass('active'); // Reset the label
-    }
-  }
 
 
 
@@ -183,7 +186,6 @@ $('.productContSlider').slick({
 
   // Lazy Loading
   $("img, iframe").attr("loading", "lazy");
-
 
 
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 @font-face {
     font-family: 'Satoshi-Light';
@@ -71,40 +72,40 @@
 
 
 :root{
-
-  --Satoshi-font: "Satoshi-Regular", sans-serif;
-  --Satoshi-Bold-font: 'Satoshi-Bold', sans-serif;
-  --Satoshi-Black-font: 'Satoshi-Black', sans-serif;
-  --Satoshi-Medium-font: 'Satoshi-Medium', sans-serif;
-  --Satoshi-Light-font: 'Satoshi-Light', sans-serif;
-  --secondary-font: 'Montserrat', sans-serif;
-  --Tertiary-font: 'Lato', sans-serif;
-  --Quaternary-font: 'Inter', sans-serif;
-  --Black: rgba(0, 0, 0, 1);
-  --Grey: #6C6C6C;
-  --White: #FFFFFF;
-  --primary-gadient: linear-gradient(270.15deg, #43C4A6 25.28%, #008742 86.78%);
-  --primary-color: #008742;
-  --secondary-color: #43C4A6;
-  --Tertiary-color: #C81823;
-  --Quaternary-color: #2B2B2B;
-  --primary-Txt-color: #161515;
-  --secondary-Txt-color: #333333;
-  --main-title: 65px;
-  --sub-title: 45px;
-  --sub-txt: 25px;
-  --body: 19px;
-  --body-sub:17px;
-  --smallest: 12px;
-  --secGap:100px;
-  --fw-light:300;
-	--fw-regular:400;
-	--fw-medium:500;
-	--fw-semi-bold:600;
-	--fw-bold:700;
-	--fw-extra-bold:800;
-	--fw-black:900;
-}
+    --Satoshi-font: "Satoshi-Regular", sans-serif;
+    --Satoshi-Bold-font: 'Satoshi-Bold', sans-serif;
+    --Satoshi-Black-font: 'Satoshi-Black', sans-serif;
+    --Satoshi-Medium-font: 'Satoshi-Medium', sans-serif;
+    --Satoshi-Light-font: 'Satoshi-Light', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --Tertiary-font: 'Lato', sans-serif;
+    --Quaternary-font: 'Inter', sans-serif;
+    --Quinary-font: 'Manrope', sans-serif;
+    --Black: rgba(0, 0, 0, 1);
+    --Grey: #6C6C6C;
+    --White: #FFFFFF;
+    --primary-gadient: linear-gradient(270.15deg, #43C4A6 25.28%, #008742 86.78%);
+    --primary-color: #008742;
+    --secondary-color: #43C4A6;
+    --Tertiary-color: #C81823;
+    --Quaternary-color: #2B2B2B;
+    --primary-Txt-color: #161515;
+    --secondary-Txt-color: #333333;
+    --main-title: 65px;
+    --sub-title: 45px;
+    --sub-txt: 25px;
+    --body: 19px;
+    --body-sub:17px;
+    --smallestTxt: 12px;
+    --secGap:100px;
+    --fw-light:300;
+    --fw-regular:400;
+    --fw-medium:500;
+    --fw-semi-bold:600;
+    --fw-bold:700;
+    --fw-extra-bold:800;
+    --fw-black:900;
+    }
 
 html,body{scroll-behavior: smooth;}
 body{text-rendering:optimizeSpeed;line-height:1.5;font-family:var(--Satoshi-font);font-weight:400;}
@@ -223,6 +224,7 @@ q{quotes:"\201C" "\201D" "\2018" "\2019";}
 
 .tab-content{display:none;}
 .tab-content.active{display: flex;flex-flow: row wrap;}
+.productDetailSliderSec.tab-content.active{display: block;width: 100%;}
 .tabBtn{cursor: pointer;font-size: var(--body);font-family: var(--Satoshi-font);font-weight: var(--fw-regular);line-height: 3;padding-inline: 1em;}
 .tabBtn.active{font-weight: var(--fw-bold);font-family: var(--Satoshi-Bold-font);border-bottom: 3px solid var(--primary-color);}
 .tabBts{margin-bottom: 3.75em;}
