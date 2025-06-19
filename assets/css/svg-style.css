@@ -178,3 +178,13 @@ footer::before{content: "";position: absolute;top: calc(var(--secGap) * 1.5);lef
 .contactLocation iframe{width: 100%;border-radius: 10px;aspect-ratio: 2.58/1;height: auto;}
 .footSocial1{margin-top: 2.25em;}
 .contactBarcodeSec > p{margin-bottom: 5px;}
+
+
+
+/* Join Us */
+.joinPgBg{background-color: #F5F5F5}
+.joinUsFrmSec{background-color: var(--White);border-radius: 10px;padding: 2.4375em;}
+.joinTopOffSec{margin-top:calc(0px - var(--secGap));}
+.joinUsFrmWrapper{max-width: 800px;margin: auto;}
+.joinFilterField > label{display: block;}
+.joinFilter{justify-content: space-evenly;}
