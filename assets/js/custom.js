@@ -1,6 +1,13 @@
 $(document).ready(function () {
 
-
+  // Select File Code
+  $('#myfile').on('change', function () {
+    if (this.files.length > 0) {
+      $('#fileNameText').text(this.files[0].name);
+    } else {
+      $('#fileNameText').text('Choose File');
+    }
+  });
 
 
 

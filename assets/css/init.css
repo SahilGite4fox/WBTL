@@ -91,6 +91,7 @@
     --Quaternary-color: #2B2B2B;
     --primary-Txt-color: #161515;
     --secondary-Txt-color: #333333;
+    --Tertiary-Txt-color: #4F5665;
     --main-title: 65px;
     --sub-title: 45px;
     --sub-txt: 25px;
@@ -224,7 +225,7 @@ q{quotes:"\201C" "\201D" "\2018" "\2019";}
 
 .tab-content{display:none;}
 .tab-content.active{display: flex;flex-flow: row wrap;}
-.productDetailSliderSec.tab-content.active{display: block;width: 100%;}
+.productDetailSliderSec.tab-content.active,.JoinUsInfoTabCont.tab-content.active{display: block;width: 100%;}
 .tabBtn{cursor: pointer;font-size: var(--body);font-family: var(--Satoshi-font);font-weight: var(--fw-regular);line-height: 3;padding-inline: 1em;}
 .tabBtn.active{font-weight: var(--fw-bold);font-family: var(--Satoshi-Bold-font);border-bottom: 3px solid var(--primary-color);}
 .tabBts{margin-bottom: 3.75em;}
