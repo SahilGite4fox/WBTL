@@ -106,6 +106,8 @@
     --fw-bold:700;
     --fw-extra-bold:800;
     --fw-black:900;
+    --slickBtnWid: 102px;
+    --slickBtnHigt: 92px;
     }
 
 html,body{scroll-behavior: smooth;}

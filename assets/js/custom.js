@@ -1,5 +1,83 @@
 $(document).ready(function () {
 
+  // Sticky Header
+  $(window).on("scroll", function () {
+    $("header").toggleClass("stickyHead", $(this).scrollTop() > 0);
+  });
+
+
+  // Hamburger menu toggle
+  $('.hambergerMenu').on('click', function () {
+    $('.headNav > nav').toggleClass('active');
+    $('body').toggleClass('menu-open');
+
+    if (!$('.menu-overlay').length) {
+      $('header').append('<div class="menu-overlay"></div>');
+    }
+  });
+
+  // Close menu
+  $(document).on('click', '.HamClose, .menu-overlay', function () {
+    $('.headNav > nav').removeClass('active');
+    $('body').removeClass('menu-open');
+    $('.menu-overlay').remove();
+  });
+
+  // Accordion for sub-menus in mobile
+  function bindAccordion() {
+    if (window.innerWidth <= 1100) {
+      $('.hasSub-menu > a').off('click').on('click', function (e) {
+        e.preventDefault();
+
+        const $parent = $(this).parent('.hasSub-menu');
+        const $submenu = $parent.find('.sub-menu').first();
+        const isOpen = $parent.hasClass('open');
+
+        // Close all others
+        $('.hasSub-menu.open').not($parent).each(function () {
+          const $thisSub = $(this).find('.sub-menu');
+          $(this).removeClass('open');
+          $thisSub.css('height', $thisSub[0].scrollHeight + 'px');
+          requestAnimationFrame(() => {
+            $thisSub.css('height', '0');
+          });
+        });
+
+        if (isOpen) {
+          $submenu.css('height', $submenu[0].scrollHeight + 'px');
+          requestAnimationFrame(() => {
+            $submenu.css('height', '0');
+            $parent.removeClass('open');
+          });
+        } else {
+          $submenu.css('height', '0');
+          $parent.addClass('open');
+          requestAnimationFrame(() => {
+            $submenu.css('height', $submenu[0].scrollHeight + 'px');
+          });
+        }
+      });
+    } else {
+      $('.hasSub-menu > a').off('click');
+      $('.sub-menu').removeAttr('style');
+      $('.hasSub-menu').removeClass('open');
+    }
+  }
+
+  // Initial bind
+  bindAccordion();
+
+  // Rebind on resize
+  $(window).on('resize', function () {
+    bindAccordion();
+  });
+
+
+
+
+
+
+
   // Select File Code
   $('#myfile').on('change', function () {
     if (this.files.length > 0) {
@@ -21,6 +99,21 @@ $(document).ready(function () {
     autoplaySpeed: 2000,
     centerMode: true,
     centerPadding: '0px',
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          centerMode: false,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   });
 
   // CareerSlick Sliders
@@ -120,79 +213,6 @@ $(document).ready(function () {
     duration: 800,
     easing: 'ease-in-out',
   });
-
-
-
-  // Sticky Header
-
-  $(window).on("scroll", function () {
-    $("header").toggleClass("stickyHead", $(this).scrollTop() > 0);
-  });
-
-
-
-
-
-  // Hamburger Menu
-  $(".mobile_Menu > a").on("click", function () {
-    $(".mobile_MenuContent").toggleClass("active");
-    $("body").toggleClass("menu-open");
-
-    if (!$(".menu-overlay").length) {
-      $("header").append('<div class="menu-overlay"></div>');
-    }
-  });
-
-  $(document).on("click", ".menu-overlay, .mobile_Menu_close", function () {
-    $(".mobile_MenuContent").removeClass("active");
-    $("body").removeClass("menu-open");
-    $(".menu-overlay").remove();
-  });
-
-
-
-  function bindMobileDropdown() {
-    if (window.matchMedia('(max-width: 950px)').matches) {
-      $('.mobile_MenuContent li > a.d-flex').off('click').on('click', function (e) {
-        e.preventDefault();
-
-        const $dropdown = $(this).next('.dropdown');
-
-        if ($dropdown.hasClass('open')) {
-          // Collapse
-          $dropdown.removeClass('open');
-          $dropdown.css('height', $dropdown[0].scrollHeight + 'px'); // Set to current height first
-          requestAnimationFrame(() => {
-            $dropdown.css('height', '0');
-          });
-        } else {
-          // Expand
-          const fullHeight = $dropdown[0].scrollHeight + 'px';
-          $dropdown.addClass('open');
-          $dropdown.css('height', fullHeight);
-        }
-
-        // Optional: close others
-        $('.dropdown').not($dropdown).removeClass('open').css('height', '0');
-      });
-    } else {
-      // Unbind the dropdown click handler on wider screens
-      $('.mobile_MenuContent li > a.d-flex').off('click');
-      $('.dropdown').removeClass('open').css('height', ''); // Reset state
-    }
-  }
-
-  // Run on page load
-  bindMobileDropdown();
-
-  // Run again on window resize
-  $(window).on('resize', function () {
-    bindMobileDropdown();
-  });
-
-
-  // Lazy Loading
-  $("img, iframe").attr("loading", "lazy");
 
 
 
