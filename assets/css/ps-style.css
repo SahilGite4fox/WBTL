@@ -6,12 +6,10 @@
 .psAboutImg1{max-width: 389px;}
 .psAboutImg2{max-width: 307px; position: absolute; right: 0; top: 25%;}
 
-
 .psOurVision{padding-top: 0; padding-bottom: calc(var(--secGap) * 2);}
 .psVisionImg{max-width: 1170px;} 
 .psVisionTxt {max-width: 841px; position: absolute; top: 44%; right: 0; background: #fff; padding: 40px;}
 .psVisionTxt > p {font-size: var(--body); font-family: var(--Satoshi-font); line-height: 2.12; color: var(--primary-Txt-color);}
-
 
 .psCarsContent:not(:last-of-type) { margin-bottom: 9em; }
 .psCarsContent{display: flex; column-gap: 3.37em;}
@@ -30,3 +28,50 @@
 .psCareerSlideBox button.slick-next{background-image:url(../images/careerslidearrowright.png) !important;right:auto;left:105%;}
 .psCareerSlideBox .slick-slide{margin:0 21px;}
 
+.joinUsDetailBox{background-color: #fff;}
+.postInfoHead{display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0, 0, 0, 0.09); padding-bottom: 1.18em;}
+.posHeading > h4{font-size: calc(var(--sub-txt) - 3px); font-family: var(--Satoshi-Bold-font); margin-bottom: 1.8em;}
+.posHeading > ul{display: flex; gap: 3em; margin-bottom: 1.25em;}
+.posHeading > ul > li{font-size: calc(var(--body-sub) - 1px); font-family: var(--Satoshi-Bold-font); color: var(--Tertiary-Txt-color); background: #E7EBF1; padding: 0.3em 0.5em; border-radius: 4px;}
+.posHeading > p{font-size: var(--body-sub); line-height: 1.37; font-family: var(--Satoshi-Medium-font); color: var(--Tertiary-Txt-color);}
+.posHeading > p > span{font-family: var(--Satoshi-Bold-font);}
+.postApplyBtn > a{width: max-content;}
+.postDetailBox{padding: 1.5em;}
+.postDetailBox > p{font-size: calc(var(--body-sub) - 1px); font-family: var(--Satoshi-font); color: var(--Tertiary-Txt-color); line-height: 1.5;}
+.postDetailBox > p:first-child{margin-bottom: 1.7em;}
+.psPostBlog:not(:last-child){margin-bottom: 1.8em;}
+.psPostBlog > h4{font-size: calc(var(--body-sub) + 1px); font-family: var(--Satoshi-Bold-font); line-height: 1.3; margin-bottom: 5px;}
+.psPostBlog > p{font-size: calc(var(--body-sub) - 1px); font-family: var(--Satoshi-font); color: var(--Tertiary-Txt-color); line-height: 1.5;}
+.repoInfo{padding-left: 3em; margin-top: 2.25em;}
+.repoInfo:first{margin-top: 1.12em !important;}
+.repoInfo > h4{font-size: calc(var(--body-sub) - 1px); font-family: var(--Tertiary-font); color: var(--Tertiary-Txt-color); margin-bottom: 10px;}
+.repoInfo > ul, .psPostBlog > ul{padding-left: 2em;}
+.repoInfo > ul li, .psPostBlog > ul li{font-size: calc(var(--body-sub) - 1px); font-family: var(--Tertiary-font); color: var(--Tertiary-Txt-color); line-height: 1.5; list-style-type: disc;} 
+
+
+.psAppForm{background: rgba(0, 135, 66, 0.06); padding: 2.25em;}
+.psAppFormHead > p{font-size: calc(var(--body) - 1px); font-family: var(--body); text-align: center;}
+.psAppFormTitle{margin-bottom: 11px;}
+.psAppFormBox{max-width: 731px; margin: auto; padding-top: 2.8em;}
+.psAppFormBox form ul{gap: 1.25em;}
+.psAppFormBox form ul.d-flex li.col-50 {width: calc(50% - 0.63em);}
+.psAppFormBox form ul li .contactContFrmFields input::placeholder{color: #565656; font-family: var(--Satoshi-font); font-size: calc(var(--body-sub) - 1px); line-height: 1.25;}
+.psFileUpload{align-items: center;}
+.expYear select{color: #565656; font-size: calc(var(--body-sub) - 1px);}
+.psFileUpload > label{color: #565656; font-size: calc(var(--body-sub) - 1px);}
+.fileSelect{max-width: 191px; width: 100%;}
+.fileSelect input{display: none;}
+.fileSelect label img{width: 15px;}
+.contactContFrmFields .fileSelect label{
+  font-size: calc(var(--body-sub) - 3px);
+  color: var(--Black);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  padding: 1.2285em;
+  outline: none;
+  border: 1px solid #D6D6D6;
+  width: 100%;
+  resize: none;
+  font-family: var(--Satoshi-font);
+}
+.upFileName{white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: calc(var(--body-sub) - 1px); color: #565656;}
